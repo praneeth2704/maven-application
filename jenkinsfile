@@ -6,6 +6,11 @@ pipeline {
                 deleteDir()
             }
         }
+        stage("clone repo"){
+            steps {
+                sh "git clone https://github.com/praneeth2704/maven-application.git"
+            }
+        }
         stage("clean and build"){
             steps {
                 dir("maven-application"){
