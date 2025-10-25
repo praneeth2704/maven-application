@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage("clean up"){
+            steps {
+                deleteDir()
+            }
+        }
+        stage("clean and build"){
+            steps {
+                dir("maven-application"){
+                    sh "mvn clean install"
+                }
+            }
+        }
+        stage("test"){
+            steps {
+                dir("maven-application"){
+                    sh "mvn test"
+                }
+            }
+        }
+    }
+}
