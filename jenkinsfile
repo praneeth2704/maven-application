@@ -25,5 +25,10 @@ pipeline {
                 }
             }
         }
+	stage("completed"){
+	    steps {
+		sh "echo build completed"
+		}
+	}
     }
 }
